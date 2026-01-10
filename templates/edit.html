@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Edit Task{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 style="margin-bottom: 20px;">Edit Task #{{ task.id }}</h2>
+    
+    <form method="POST">
+        <label for="title">Title *</label>
+        <input type="text" id="title" name="title" required value="{{ task.title }}">
+        
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="3">{{ task.description or '' }}</textarea>
+        
+        <label for="status">Status</label>
+        <select id="status" name="status">
+            <option value="pending" {% if task.status == 'pending' %}selected{% endif %}>Pending</option>
+            <option value="completed" {% if task.status == 'completed' %}selected{% endif %}>Completed</option>
+        </select>
+        
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority">
+            <option value="1" {% if task.priority == 1 %}selected{% endif %}>Low</option>
+            <option value="2" {% if task.priority == 2 %}selected{% endif %}>Medium</option>
+            <option value="3" {% if task.priority == 3 %}selected{% endif %}>High</option>
+        </select>
+        
+        <div style="margin-top: 10px;">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{{ url_for('index') }}" class="btn" style="background: #e5e7eb;">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

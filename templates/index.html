@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>All Tasks</h2>
+        <a href="{{ url_for('add_task') }}" class="btn btn-primary">Add Task</a>
+    </div>
+    
+    {% if tasks %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td><strong>{{ task.title }}</strong></td>
+                <td>{{ task.description or '-' }}</td>
+                <td>
+                    <span class="status status-{{ task.status }}">{{ task.status }}</span>
+                </td>
+                <td>
+                    <span class="priority {% if task.priority >= 3 %}priority-high{% elif task.priority == 2 %}priority-medium{% else %}priority-low{% endif %}">
+                        {% if task.priority >= 3 %}High{% elif task.priority == 2 %}Medium{% else %}Low{% endif %}
+                    </span>
+                </td>
+                <td class="actions">
+                    {% if task.status != 'completed' %}
+                    <a href="{{ url_for('complete_task', task_id=task.id) }}" class="btn btn-success btn-sm">Complete</a>
+                    {% endif %}
+                    <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this task?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="text-align: center; color: #6b7280; padding: 40px;">No tasks yet. <a href="{{ url_for('add_task') }}">Add your first task</a></p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>About MiniDB</h3>
+    <p style="margin-top: 10px; color: #6b7280;">
+        This demo app uses MiniDB, a simple RDBMS built from scratch. 
+        All data is stored using MiniDB's JSON-based persistence with B-Tree indexing.
+        Try the <a href="{{ url_for('sql_console') }}">SQL Console</a> to run queries directly!
+    </p>
+</div>
+{% endblock %}
