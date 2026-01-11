@@ -1,6 +1,6 @@
 # MiniDB - A Simple Relational Database Management System
 
-**MiniDB is a complete relational database management system built from scratch in Python to demonstrate core database concepts and system design skills.** This project implements SQL parsing, B-Tree indexing, query optimization, and CRUD operations without using any existing database libraries. It showcases understanding of database internals, data structures, and software architecture through a working system that includes both a command-line interface and a web application demo.
+MiniDB is a complete relational database management system built from scratch in Python to demonstrate core database concepts and system design skills. This project implements SQL parsing, B-Tree indexing, query optimization, and CRUD operations without using any existing database libraries. It showcases understanding of database internals, data structures, and software architecture through a working system that includes both a command-line interface and a web application demo.
 
 Built as a coding challenge submission, MiniDB proves that complex systems can be constructed with clean, maintainable code while providing real functionality that users can interact with immediately.
 
@@ -52,18 +52,18 @@ MiniDB is a complete relational database management system implemented from the 
 
 ### Installation
 
-1. **Clone the repository**
+1. Clone the repository
    ```bash
    git clone https://github.com/Copubah/minidb.git
    cd minidb
    ```
 
-2. **Install dependencies**
+2. Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Start the interactive shell**
+3. Start the interactive shell
    ```bash
    python -m minidb.repl
    ```
@@ -417,57 +417,57 @@ The system uses a simple but effective query processing pipeline:
 ## What Makes MiniDB Special
 
 ### Built from Scratch
-- **Zero external database libraries**: Every component implemented from first principles
-- **Custom SQL parser**: Hand-written tokenizer and recursive descent parser
-- **Native B-Tree implementation**: Self-balancing tree with O(log n) operations
-- **Query execution engine**: Complete pipeline from parsing to result formatting
+- Zero external database libraries: Every component implemented from first principles
+- Custom SQL parser: Hand-written tokenizer and recursive descent parser
+- Native B-Tree implementation: Self-balancing tree with O(log n) operations
+- Query execution engine: Complete pipeline from parsing to result formatting
 
 ### Production-Quality Code
-- **Modular architecture**: Clean separation of concerns across components
-- **Comprehensive error handling**: Meaningful error messages and validation
-- **Extensive documentation**: Both code comments and architectural explanations
-- **Real-world demo**: Working web application showing practical usage
+- Modular architecture: Clean separation of concerns across components
+- Comprehensive error handling: Meaningful error messages and validation
+- Extensive documentation: Both code comments and architectural explanations
+- Real-world demo: Working web application showing practical usage
 
 ### Educational Value
-- **Demonstrates core CS concepts**: Data structures, algorithms, language design
-- **Shows system design thinking**: Layered architecture and component interaction
-- **Illustrates trade-offs**: Performance vs. simplicity, features vs. complexity
-- **Provides learning resource**: Clear code that others can study and extend
+- Demonstrates core CS concepts: Data structures, algorithms, language design
+- Shows system design thinking: Layered architecture and component interaction
+- Illustrates trade-offs: Performance vs. simplicity, features vs. complexity
+- Provides learning resource: Clear code that others can study and extend
 
 ## Current Limitations
 
 MiniDB is a demonstration project with several intentional limitations that would need to be addressed for production use:
 
 ### Concurrency & Transactions
-- **Single-threaded**: No concurrent access support
-- **No ACID guarantees**: No transaction isolation or atomicity
-- **No locking**: Race conditions possible with multiple writers
-- **No WAL**: No write-ahead logging for crash recovery
+- Single-threaded: No concurrent access support
+- No ACID guarantees: No transaction isolation or atomicity
+- No locking: Race conditions possible with multiple writers
+- No WAL: No write-ahead logging for crash recovery
 
 ### SQL Feature Set
-- **Limited JOIN types**: Only INNER JOIN implemented
-- **No subqueries**: Nested SELECT statements not supported
-- **No aggregations**: No GROUP BY, COUNT, SUM, AVG functions
-- **No advanced clauses**: No HAVING, UNION, or window functions
-- **Basic data types**: Only INTEGER, TEXT, FLOAT, BOOLEAN
+- Limited JOIN types: Only INNER JOIN implemented
+- No subqueries: Nested SELECT statements not supported
+- No aggregations: No GROUP BY, COUNT, SUM, AVG functions
+- No advanced clauses: No HAVING, UNION, or window functions
+- Basic data types: Only INTEGER, TEXT, FLOAT, BOOLEAN
 
 ### Performance & Scalability
-- **Memory-only**: Entire database loaded into RAM
-- **No query optimization**: Simple nested-loop joins only
-- **No statistics**: No cost-based query planning
-- **Single-file storage**: No partitioning or sharding
+- Memory-only: Entire database loaded into RAM
+- No query optimization: Simple nested-loop joins only
+- No statistics: No cost-based query planning
+- Single-file storage: No partitioning or sharding
 
 ### Storage Engine
-- **JSON format**: Human-readable but inefficient for large datasets
-- **No compression**: Storage not optimized for space
-- **No backup/restore**: No built-in backup mechanisms
-- **No replication**: Single point of failure
+- JSON format: Human-readable but inefficient for large datasets
+- No compression: Storage not optimized for space
+- No backup/restore: No built-in backup mechanisms
+- No replication: Single point of failure
 
 ### Security & Administration
-- **No authentication**: No user management or access control
-- **No encryption**: Data stored in plain text
-- **No audit logging**: No tracking of database operations
-- **No configuration**: Limited tuning options
+- No authentication: No user management or access control
+- No encryption: Data stored in plain text
+- No audit logging: No tracking of database operations
+- No configuration: Limited tuning options
 
 These limitations were conscious design choices to keep the implementation focused on core database concepts while maintaining code clarity and demonstrating fundamental understanding of RDBMS internals.
 
@@ -592,23 +592,23 @@ JOIN table2 t2 ON t1.id = t2.foreign_id;
 ### Technical Achievements
 This project demonstrates practical implementation of fundamental computer science concepts:
 
-- **Data Structures**: B-Trees for efficient indexing and search operations
-- **Language Design**: Complete SQL parser with tokenization and AST generation  
-- **Systems Programming**: Storage engine with persistence and crash safety
-- **Algorithm Design**: Query optimization and execution planning
-- **Software Architecture**: Modular design with clear component boundaries
+- Data Structures: B-Trees for efficient indexing and search operations
+- Language Design: Complete SQL parser with tokenization and AST generation  
+- Systems Programming: Storage engine with persistence and crash safety
+- Algorithm Design: Query optimization and execution planning
+- Software Architecture: Modular design with clear component boundaries
 
 ### Design Philosophy
-MiniDB prioritizes **clarity over performance** and **education over features**. Every design decision favors code readability and conceptual understanding while still delivering a genuinely functional system.
+MiniDB prioritizes clarity over performance and education over features. Every design decision favors code readability and conceptual understanding while still delivering a genuinely functional system.
 
 ### Future Enhancements
 The modular architecture makes MiniDB easily extensible. Priority improvements would include:
 
-1. **Concurrency control** with row-level locking
-2. **Transaction support** with ACID guarantees
-3. **Query optimization** with cost-based planning
-4. **Additional SQL features** (GROUP BY, subqueries, etc.)
-5. **Network protocol** for client-server architecture
+1. Concurrency control with row-level locking
+2. Transaction support with ACID guarantees
+3. Query optimization with cost-based planning
+4. Additional SQL features (GROUP BY, subqueries, etc.)
+5. Network protocol for client-server architecture
 
 ## Credits
 
@@ -620,7 +620,7 @@ The implementation demonstrates understanding of:
 - System design principles and software architecture
 - Performance considerations and optimization trade-offs
 
-**Repository**: https://github.com/Copubah/minidb
+Repository: https://github.com/Copubah/minidb
 
 ## License
 
