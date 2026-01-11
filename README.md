@@ -482,45 +482,45 @@ python -c "
 from minidb.engine import Database
 from minidb.executor import Executor
 
-print('🧪 Testing MiniDB Core Features...\n')
+print('Testing MiniDB Core Features...\n')
 
 db = Database()
 ex = Executor(db)
 
 # Test 1: Table Creation
-print('✓ Creating table with constraints...')
+print('Creating table with constraints...')
 ex.execute('CREATE TABLE products (id INTEGER PRIMARY KEY, name TEXT NOT NULL, price FLOAT, category TEXT UNIQUE)')
 
 # Test 2: Data Insertion
-print('✓ Inserting test data...')
+print('Inserting test data...')
 ex.execute(\"INSERT INTO products VALUES (1, 'Laptop', 999.99, 'Electronics')\")
 ex.execute(\"INSERT INTO products VALUES (2, 'Book', 19.99, 'Education')\")
 
 # Test 3: Queries
-print('✓ Testing SELECT queries...')
+print('Testing SELECT queries...')
 result = ex.execute('SELECT * FROM products WHERE price > 50')
 assert len(result.rows) == 1
 
 # Test 4: Updates
-print('✓ Testing UPDATE operations...')
+print('Testing UPDATE operations...')
 ex.execute('UPDATE products SET price = 899.99 WHERE id = 1')
 
 # Test 5: Joins
-print('✓ Testing JOIN operations...')
+print('Testing JOIN operations...')
 ex.execute('CREATE TABLE reviews (id INTEGER PRIMARY KEY, product_id INTEGER, rating INTEGER)')
 ex.execute('INSERT INTO reviews VALUES (1, 1, 5)')
 result = ex.execute('SELECT products.name, reviews.rating FROM products JOIN reviews ON products.id = reviews.product_id')
 assert len(result.rows) == 1
 
 # Test 6: Constraints
-print('✓ Testing constraint validation...')
+print('Testing constraint validation...')
 try:
     ex.execute(\"INSERT INTO products VALUES (3, 'Tablet', 299.99, 'Electronics')\")
-    print('❌ Unique constraint should have failed!')
+    print('ERROR: Unique constraint should have failed!')
 except ValueError:
-    print('✓ Unique constraint properly enforced')
+    print('Unique constraint properly enforced')
 
-print('\n🎉 All tests passed! MiniDB is working correctly.')
+print('\nAll tests passed! MiniDB is working correctly.')
 "
 ```
 
